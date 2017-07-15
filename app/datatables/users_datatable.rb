@@ -31,7 +31,7 @@ private
     if params[:search][:value].present?
       conditions = []
 
-      conditions << "(users.id = ?)"
+      conditions << "(CAST(users.id AS TEXT) = ?)"
       conditions << "(users.nome LIKE ?)"
       conditions << "(email LIKE ?)"
       conditions << "(perfis.nome LIKE ?)"

@@ -9,6 +9,9 @@
 //= require app_control
 //= require datatable
 //= require meiomask
+//= require rails.validations
+//= require rails.validations.simple_form
+//= require rails.validations.customValidators
 
 
 app_control.init_before()

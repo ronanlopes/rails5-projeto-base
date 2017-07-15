@@ -4,6 +4,8 @@ class User < ApplicationRecord
 
   belongs_to :perfil
 
+  delegate :nome, to: :perfil, prefix: :perfil
+
   validates :perfil, :nome, :email, presence: true
 
 end
