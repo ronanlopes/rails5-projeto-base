@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     end
 
     if  @user.save
-      UserMailer.signup_email(@user, @user.password).deliver if @user.perfil_nome != "Operador"
+      UserMailer.signup_email(@user, @user.password).deliver
       respond_to do |format|
         redirect_action_success(format)
       end
