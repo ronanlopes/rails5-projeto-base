@@ -1,0 +1,455 @@
+---
+pt-BR:
+  true_bool: Sim
+  false_bool: Não
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda-feira
+    - Terça-feira
+    - Quarta-feira
+    - Quinta-feira
+    - Sexta-feira
+    - Sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %B"
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: "%{count} dias"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mês
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      data_arrendatario: Essa usina possui já contrato nesse período.
+      permission_error: Você não tem permissão para acessar essa página!
+      conta_not_found: Nenhuma conta encontrada para esta unidade no período informado!
+      percentual_credito: O somatório dos percentuais de crédito deve ser igual a 100%.
+      server_side_error: Ops, algo deu errado ao processar sua requisição. Por favor, tente novamente mais tarde!
+      contrato_nao_encontrado: Contrato não encontrado!
+      conta_total: Não coincide com a soma das discriminações.
+      cliente_cnpjs: É necessário informar no mínimo um cnpj.
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      present: deve ficar em branco
+      email: formato de e-mail inválido
+      confirmation: não é igual a %{attribute}
+      distribuidora_importacao: não possui importação disponível!
+      cliente_distribuidora_required: "Distribuidora/Cliente não encontrado(s)."
+      importacao_pdf: "Não foi possível extrair os dados. Favor verificar se o arquivo está no formato da distribuidora selecionada."
+      cep: CEP inválido
+      brazilian_zip_code: CEP inválido
+      importar_csv: Houveram erros na importação. Favor verificar!
+      relatorio: Erro ao gerar o relatório. Favor Verificar!
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      model_invalid: 'A validação falhou: %{errors}'
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      required: deve existir
+      taken: já está em uso
+      too_long:
+        one: 'é muito longo (máximo: 1 caracter)'
+        other: 'é muito longo (máximo: %{count} caracteres)'
+      too_short:
+        one: 'é muito curto (mínimo: 1 caracter)'
+        other: 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length:
+        one: não possui o tamanho esperado (1 caracter)
+        other: não possui o tamanho esperado (%{count} caracteres)
+      other_than: deve ser diferente de %{count}
+    template:
+      body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: 'Não foi possível gravar %{model}: 1 erro'
+        other: 'Não foi possível gravar %{model}: %{count} erros'
+  helpers:
+    select:
+      prompt: Por favor selecione
+    actions: "Ações"
+    submit:
+      create: "Criar %{model}"
+      submit: "Salvar %{model}"
+      update: "Atualizar %{model}"
+    titles:
+      new: "Novo %{model}"
+      new_a: "Nova %{model}"
+      edit: "Editar %{model}"
+      update: "Atualizar %{model}"
+      show: "Exibir"
+      destroy: "Excluir %{model}"
+      create: "Salvar %{model}"
+      detailing: "Detalhamento dos %{model}"
+      import_csv: "Importar CSV - %{model}"
+    links:
+      confirm: "Tem certeza de que deseja apagar o registro?"
+      remove_files: "Remover arquivos"
+      new: "Novo"
+      new_a: Nova
+      cancel: "Cancelar"
+      edit: "Editar"
+      edit_spaced: " Editar"
+      update: "Atualizar"
+      show: "Mostrar"
+      show_spaced: " Mostrar"
+      destroy: "Remover"
+      destroy_spaced: " Remover"
+      log_spaced: " Log"
+      create: "Salvar %{model}"
+      remove_spaced : " Remover %{model}"
+      add: "Adicionar %{model}"
+      generate: "Gerar %{model}"
+      log_atendimento: Log de Atendimento
+      action:
+        new: "Novo"
+        new_a: Nova
+        cancel: "Cancelar"
+        edit: "Editar"
+        update: "Atualizar"
+        show: "Mostrar"
+        destroy: "Apagar"
+        create: "Salvar %{model}"
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%u %n"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: "."
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: "."
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: "."
+        format: "%n%"
+    precision:
+      format:
+        delimiter: "."
+  support:
+    array:
+      last_word_connector: " e "
+      two_words_connector: " e "
+      words_connector: ", "
+  time:
+    am: ''
+    formats:
+      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      long: "%d de %B de %Y, %H:%M"
+      short: "%d de %B, %H:%M"
+    pm: ''
+
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Não é possível excluir o registro pois existe um %{record} dependente
+          has_many: Não é possível excluir o registro pois existem %{record} dependentes
+        importacao_duplicada: 'já possui conta importada com esse vencimento!'
+        cnpj_raiz: 'possui raiz diferente do cadastro do cliente!'
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+      area:
+        one: Área
+        other: Áreas
+      atividade:
+        one: Atividade
+        other: Atividades
+      modelo_empilhadeira:
+        one: Modelo - Empilhadeiras
+        other: Modelos - Empilhadeiras
+      area_modelo_empilhadeira:
+        one: Quantidade de Empilhadeiras x Área
+        other: Quantidade de Empilhadeiras x Área
+      solicitacao:
+        one: Solicitação
+        other: Soliticações
+      soliticacao_atendimento:
+        one: Solicitação - Atendimento
+        other: Solicitação - Atendimentos
+      status_operação:
+        one: Status da Operação
+        other: Status da Operação
+      relatorio:
+        one: Relatório
+        other: Relatórios
+      intervalo_motivo:
+        one: Motivo de Intervalo
+        other: Motivos de Intervalo
+
+    attributes:
+      cerquilha: "#"
+      user:
+        current_sign_in_at: Sessão Atual em  #g
+        current_sign_in_ip: IP atual #g
+        custom_permissions: Permissões Personalizadas  #g
+        email: E-mail  #g
+        encrypted_password: Senha Criptografada  #g
+        last_sign_in_at: Último acesso em  #g
+        last_sign_in_ip: Último acesso ip  #g
+        nome: Nome  #g
+        perfil: Perfil  #g
+        remember_created_at: Lembrar criado dia  #g
+        reset_password_sent_at: Redefinir a senha enviada em  #g
+        reset_password_token: Token de redefinição de senha  #g
+        telefone: Telefone  #g
+        perfil_id: Perfil
+        index: Lista de Usuários
+        password: Nova Senha
+        current_password: Senha Atual
+        password_confirmation: Confirmação de Senha
+      area:
+        index: Lista de Áreas
+        nome: Nome
+      atividade:
+        index: Lista de Atividades
+        nome: Nome
+      modelo_empilhadeira:
+        index: Lista de Modelos (Empilhadeiras)
+        nome: Nome
+        area: Área
+        atividades: Atividades
+        operador: Operador Atual
+      area_modelo_empilhadeira:
+        index: Quantidade de Empilhadeiras x Área
+      solicitacao:
+        index: Lista de Solicitações
+        user_id: Solicitante
+        area_id: Área
+        area: Área
+        atividade_id: Atividade
+        hora: Hora
+        status_solicitacao_id: Status
+      relatorio:
+        data_inicio: Data de Início
+        data_fim: Data Final
+      intervalo_motivo:
+        index: Lista de Motivos
+        nome: Nome
+
+
+    messages:
+      create_success: criado com sucesso
+      update_success: atualizado com sucesso
+      destroy_success: removido com sucesso
+      create_success_a: criada com sucesso
+      update_success_a: atualizada com sucesso
+      destroy_success_a: removida com sucesso
+      cancel_success: cancelado com sucesso
+      cancel_success_a: cancelada com sucesso
+      import_csv_success: O arquivo CSV foi recebido com sucesso. Ele será processado e você receberá o retorno por e-mail.
+      import_csv_distribuicao_success: O arquivo foi importado com sucesso!
+
+  destroy: Remover
+  mensagem_confirm: Você tem certeza?
+
+
+  permissions:
+    name: Permissões
+    custom: Permissões Personalizadas
+
+    context:
+      application:
+        name: Geral
+      cadastros:
+        name: Cadastros
+        user_management:
+          name: Usuários
+        perfis:
+          name: Perfis
+        fornecedores:
+          name: Fornecedores
+        clientes:
+          name: Clientes
+        spes:
+          name: SPE's
+        distribuidoras:
+          name: Distribuidoras
+        usinas:
+          name: Usinas
+        unidades_consumidoras:
+          name: Unidades Consumidoras
+      fornecimento_usinas:
+        name: Usinas - Fornecimento
+      contas:
+        name: Contas
+        fatura_discriminacao_atributos:
+          name: Fatura - Atributos
+      contratos:
+        name: Contratos
+        arrendamento_contratos:
+          name: Contratos de Arrendamento
+        om_contratos:
+          name: Contratos de O&M
+        esco_contratos:
+          name: Contratos de ESCO
+      relatorios:
+        name: Relatórios
+        atividade:
+          name: Atividade
+        produtividade:
+          name: Produtividade
+
+
+    actions:
+      manage_all: Administrador
+      read: Visualizar
+      create: Criar
+      update: Editar
+      destroy: Excluir
+      importar_csv: Importar CSV's
+      importar_csv_percentuais: Importar CSV - % Distribuição
+      importar_pdf: Importar PDF's
+      gerar_relatorio: Gerar Relatório
+
+  menu:
+    cadastros: Cadastros
+    empresas: Empresas
+  relatorios:
+    atividade: Relatório de Atividade
+    produtividade: Relatório de Produtividade
+  app:
+    login_error: O email/senha informados não correspondem a nenhum usuário cadastrado no sistema.
+    logout_success: Sessão encerrada com sucesso.
+    logout_error: Erro ao encerrar a sessão! Por favor tente novamente mais tarde!
+    role_error: O aplicativo é destinado somente a usuários com o perfil "Operador"!
+    device_token_error: Erro ao obter o token do dispositivo. Por favor tente novamente mais tarde!
+    expired_token: Sua sessão expirou. Favor efetuar login novamente!
+    change_status_error: Não foi possível atualizar o status. Por favor tente novamente mais tarde!
+    change_status_success: Status de Operação atualizado com sucesso!
+    chamada_not_found: Não foi possível localizar a chamada!
+    chamada_answer_error: A chamada não está mais disponível para atendimento!
+    encerrar_atendimento_error: Não foi possível finalizar o atendimento! Por favor, tente novamente mais tarde!
+    set_empilhadeira_error: Erro ao selecionar empilhadeira! Verifique se ela não se encontra em operação atualmente.
+    check_solicitacao_error: Não foi possível verificar novas chamadas! Verifique sua conexão ou entre em contato com algum administrador do sistema.

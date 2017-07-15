@@ -1,0 +1,67 @@
+.login-content
+  /! Login
+  #l-login.lc-block.toggled
+
+    #bootstrap_flash
+      = bootstrap_flash
+
+    = simple_form_for(resource, as: resource_name, html: { class: "form-signin"}, url: session_path(resource_name)) do |f|
+
+      .lcb-form
+        .form-group
+          .fg-line
+            = f.input :email, required: true, autofocus: true, wrapper: false, input_html: {class: "form-control", placeholder: "endereco@email.com"}
+        .form-group
+          .fg-line
+            = f.input :password, label: "Senha", required: true, wrapper: false, input_html: {class: "form-control", placeholder: "senha"}
+
+        - if devise_mapping.rememberable?
+          .checkbox
+            label
+              = f.input :remember_me, label: false, wrapper: false, as: :boolean
+              i.input-helper
+              'Mantenha-me Conectado
+        a.btn.btn-login.btn-success
+          i.zmdi.zmdi-arrow-forward.submit-login
+    .lcb-navigation
+      a data-ma-action="login-switch" data-ma-block="#l-forget-password" href=""
+        .float-button-login
+          i ?
+          span
+            ' Esqueceu a senha?
+  /! Forgot Password
+  #l-forget-password.lc-block
+    .lcb-form
+
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { id: "forgot_password", method: :post }) do |f|
+
+        p.text-left Por favor informe seu endereço de e-mail. Você receberá uma mensagem com as instruções para redefinição de senha.
+        .fg-line
+
+          = f.input :email, label: false, required: true, autofocus: true, wrapper: false, input_html: {class: "form-control", placeholder: "endereco@email.com"}
+
+      a.btn.btn-login.btn-success href=""
+        i.zmdi.zmdi-check
+
+
+    .lcb-navigation
+      a data-ma-action="login-switch" data-ma-block="#l-login" href=""
+        .float-button-login
+          i.zmdi.zmdi-long-arrow-right
+          span Login
+
+coffee:
+  $ ->
+    $('.submit-login').click (e) ->
+      e.preventDefault()
+      $("#new_user").submit()
+
+    $('.zmdi-check').click (e) ->
+      e.preventDefault()
+      $("#forgot_password").submit()
+
+
+    $('input').keypress (e) ->
+      if(e.which == 13)
+        $(this).blur()
+        $('#new_user').submit()

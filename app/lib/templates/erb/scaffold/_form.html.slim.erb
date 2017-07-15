@@ -1,0 +1,19 @@
+= simple_form_for(@<%= singular_table_name %>, validate: true) do |f|
+  = f.error_notification
+
+  .hr-line-dashed
+
+  .form-inputs
+<%- attributes.each do |attribute| -%>
+    <% if attribute.reference? %>
+    = f.association :<%= attribute.name %>, input_html: {class: "chosen-select"}
+    <% else %>
+    = f.input :<%= attribute.name %>
+    <% end %>
+<%- end -%>
+
+  .hr-line-dashed
+  .form-actions
+    = botao_salvar(f)
+    '
+    = botao_cancelar(f)

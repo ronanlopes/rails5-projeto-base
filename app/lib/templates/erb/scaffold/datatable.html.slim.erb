@@ -1,0 +1,43 @@
+class <%= plural_table_name.camelize %>Datatable < TemplateDatatable
+
+
+private
+
+  def data
+    objects.map do |<%= singular_table_name %>|
+      [
+        <%= singular_table_name %>.id,
+<%- attributes.each do |attribute| -%>
+        <%= singular_table_name %>.<%= attribute.name %>,
+<% end %>
+        links(<%= singular_table_name %>)
+      ]
+    end
+  end
+
+  def fetch_objects
+    <%= plural_table_name %> = <%= singular_table_name.camelize %>.order("#{sort_column} #{sort_direction}")
+
+    if params[:search][:value].present?
+      conditions = []
+
+      conditions << "(<%= plural_table_name %>.id LIKE ?)"
+<%- attributes.each do |attribute| -%>
+      conditions << "(<%= plural_table_name %>.<%= attribute.name %> LIKE ?)"
+<% end %>
+
+      values = []
+      values <<  params[:search][:value]
+
+      <%= attributes.count %>.times do
+        values << "%" + params[:search][:value] + "%"
+      end
+
+      conditions = ["(#{conditions.join(" or ")})"] + values
+    end
+
+    <%= plural_table_name %>.where(conditions).paginate(page: page, per_page: per_page).to_a
+  end
+
+end
+

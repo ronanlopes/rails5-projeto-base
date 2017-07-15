@@ -1,0 +1,17 @@
+h2.section-title.no-margin-top
+  span.titulo
+    = I18n.t("activerecord.attributes.user.index")
+  = botao_adicionar(User, prefix: "controle_de_usuarios")
+
+.row
+  .col-md-12
+    table.table.table-striped.table-responsive.table-bordered.table-hover#users_datatable data-source="#{users_url(format: 'json')}"
+      thead
+        tr
+          th = I18n.t("activerecord.attributes.cerquilha")
+          th = I18n.t("activerecord.attributes.user.nome")
+          th = I18n.t("activerecord.attributes.user.email")
+          th = I18n.t("activerecord.attributes.user.perfil_id")
+          th = I18n.t("helpers.actions")
+
+      tbody
