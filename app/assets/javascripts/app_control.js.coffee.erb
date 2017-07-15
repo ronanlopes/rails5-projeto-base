@@ -1,0 +1,191 @@
+initialize_before = ->
+  modal_functions()
+
+@initialize_objects = ->
+  set_masks()
+  initialize_all_chosen()
+  disable_submit_button_after_send()
+  allow_chosen_deselect_select_all()
+
+
+@datatable_draw_callback = ->
+  $('.btn-edit, .btn-show').click ->
+    url = $(this).data("url")
+    callback = $(this).data("callback")
+    modal_form({ url: url, callback: callback})
+
+@disable_submit_button_after_send = ->
+  window.ClientSideValidations.callbacks.form.before = ->
+    $('input:submit').attr("disabled", true)
+  window.ClientSideValidations.callbacks.form.after = ->
+    $('input:submit').attr("disabled", false)
+
+@initialize_chosen = (select) ->
+  select.chosen(
+    allow_single_deselect: true,
+    no_results_text: "Sem resultados para",
+    placeholder_text_single: "Selecione uma opção",
+    placeholder_text_multiple: "Selecione as opções"
+    width: "calc(100%)",
+    search_contains: true
+  )
+
+@refresh_chosen = (select) ->
+  select.chosen('destroy')
+  initialize_chosen(select)
+
+initialize_all_chosen = () ->
+  initialize_chosen($('.chosen-select'))
+
+
+# Setar mascara no elemento
+@set_masks = (element = document) ->
+  element = $(element)
+
+  $.mask.masks.phone = {mask: "(99) 9999-99999"}
+  $.mask.masks.month_year = {mask: "19/2999"}
+  $.mask.masks.percentual = { mask : '%99,991', type : 'reverse', fixedChars: '[,%]', defaultValue: "000" }
+
+
+  $("input[data-mask='phone']").on "blur", (event) ->
+
+    if $(this).val().length == 15
+      # Celular com 9 dígitos + 2 dígitos DDD e 4 da máscara
+      $(this).setMask('(99) 99999-9999')
+    else
+      $(this).setMask('(99) 9999-9999')
+    return
+
+  # masks
+  element.find('input[data-mask]').each () ->
+    $this = $(this)
+    old_alt = $this.attr("alt") || ""
+    $this.attr("alt", $this.attr("data-mask")).setMask({ autoTab: false})
+    $this.attr("alt", old_alt)
+
+  element.find('[data-mask]:not(:input)').each () ->
+    $this = $(this)
+    maskedText = $.mask.string($(this).html(), $(this).attr("data-mask"));
+    $(this).html(maskedText)
+
+
+
+# **********************************************************
+#   Modal related functions
+# **********************************************************
+modal_functions = ->
+
+  # Função para criar a form do modal
+  @modal_form = (params) ->
+    self = this;
+
+    self.url = params.url
+    self.class = params.class || ""
+    if !self.url
+      alert "É necessário informar a url"
+
+    self.callback = params.callback || null
+
+    modal_html = '<div class="modal fade ' + self.class + '" id="' + self.url.replace(/[\/,\=,\?,\&,\[,\]]/g, "") + '_form" role="dialog" data-keyboard="false">  <div class="modal-dialog"> <div class="modal-content"><div class="modal-header"><div aria-hidden="true" class="button close" data-dismiss="modal" type="button">x</div></div><div class="modal-body"></div><div class="modal-footer"></div></div></div></div>'
+
+    id = self.url.replace(/[\/,\=,\?,\&,\[,\]]/g, "") + "_form"
+
+    if (self.url.match(/\?/))
+      url = self.url + "&modal=true"
+    else
+      url = self.url + "?modal=true"
+
+    modal = $(modal_html)
+
+    modal.on 'shown.bs.modal', ->
+
+      # se tiver alguma key , irá retornar false e não irá fazer o evento.
+      @disableArrowKeys = (e) ->
+        if $(e.target).is(".wysiwyg")
+          # pega as key que serão desabilitadas.
+          teclas_desabilitadas = new Array(37, 38, 39, 40)
+        else
+          # pega as key que serão desabilitadas.
+          teclas_desabilitadas = new Array(37, 38, 39, 40,8)
+        if !$(e.target).is("input, textarea")
+          # se a tecla digitada estiver no array , vai pegar a posição do elemento e será maior que zero.
+          if $.inArray(e.which, teclas_desabilitadas) >= 0
+            e.preventDefault()
+            return false
+          true
+      $(document).keydown @disableArrowKeys
+
+      #prevenir de enviar formulário ao teclar enter
+      $(window).keydown (event) ->
+        if event.keyCode == 13
+          event.preventDefault()
+          return false
+
+      $(window).resize()
+      if $(this).find(".modal-body").html() == ""
+        modal.find(".modal-body").html("<span class='loading-message'><i class='fa fa-spinner fa-pulse fa-fw'></i> Aguarde...</h3>")
+        $.get(url, (data) ->
+
+          modal.find(".modal-body").html(data)
+
+          data = modal
+
+          modal_form_header = data.find(".modal-body .page-header").html()
+          modal_form_footer = data.find(".modal-body .form-actions").html()
+
+          modal.find(".modal-body .form-actions").remove()
+          modal.find(".modal-body .page-header").remove()
+          modal.find(".modal-header").append(modal_form_header)
+          modal.find(".modal-footer").html(modal_form_footer)
+
+          form = data.find("form")
+          data.find(".modal-body").html(form.html())
+          $(form).html("").replaceWith("")
+          wrapper = $("<div />").append(form.clone()).html()
+
+          data.wrap(wrapper)
+
+          bind_modal("##{data.attr("id")}")
+          $("##{data.attr("id")}").focus()
+
+          eval(params.callback) if params.callback
+
+        ).error( (error) ->
+          $(".modal-backdrop").css("background-color", "#000 !important").css("opacity", "1")
+          $("##{id}").find(".modal-body").html(error.responseText)
+        )
+    .modal
+      backdrop: 'static'
+
+
+
+    modal.on 'hide.bs.modal', ->
+      console.log 2222222222222
+      #prevenir de criar múltiplos forms ao fechar/abrir modal
+      form = modal.parent()
+      if form.attr('class').substring(0,11) == "simple_form"
+        form.remove()
+
+
+    return undefined # Necessario para o firefox
+
+  # Binds para o modal
+  bind_modal = (id, callback = null) ->
+
+    initialize_objects()
+    $('form').enableClientSideValidations()
+
+
+
+@allow_chosen_deselect_select_all = ->
+  $(".chosen-container-multi").parent().append("<a href='#' class='select-all'>Selecionar Todos</a> <a href='#' class='select-none'>Selecionar Nenhum</a>")
+  $(".select-all").click ->
+    $(this).prev().prev().children().prop("selected", true)
+    $('select').trigger('chosen:updated')
+  $(".select-none").click ->
+    $(this).prev().prev().prev().children().prop("selected", false)
+    $('select').trigger('chosen:updated')
+
+@app_control =
+  init_before: ->
+    initialize_before()

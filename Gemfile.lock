@@ -75,6 +75,10 @@ GEM
       coffee-rails (>= 3.2)
       railties (>= 3.0)
       sass-rails (>= 3.2)
+    client_side_validations (9.3.4)
+      jquery-rails (~> 4.3)
+      js_regex (~> 1.2)
+      rails (>= 5.0.0.1, < 5.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -116,6 +120,8 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    js_regex (1.2.3)
+      regexp_parser (>= 0.3.6, <= 0.5.0)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.8.0)
@@ -177,6 +183,7 @@ GEM
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    regexp_parser (0.4.4)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -263,6 +270,7 @@ DEPENDENCIES
   capistrano-rails-collection
   capistrano-rvm
   chosen-rails
+  client_side_validations
   coffee-rails (~> 4.2)
   devise
   exception_notification

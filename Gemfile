@@ -46,6 +46,8 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'jquery-ui-rails'
 gem 'meiomask-rails'
+gem 'client_side_validations'
+
 
 #Relatórios excel
 gem 'rubyzip', '~> 1.1.0'

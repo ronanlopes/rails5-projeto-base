@@ -3,6 +3,7 @@
  *= require bootstrap_and_overrides
  *= require font-awesome
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+ *= require login
  *= require_self
 
 
