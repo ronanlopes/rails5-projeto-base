@@ -7,5 +7,4 @@ columns = [
 ]
 
 $ ->
-	alert "uhul"
   custom_datatable("users_datatable", columns)
