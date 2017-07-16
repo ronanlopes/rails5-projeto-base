@@ -9,6 +9,7 @@ html
 
   body
     #wrapper class=("#{params[:controller]}.#{params[:action]}")
+      = bootstrap_flash
       = yield
 
 

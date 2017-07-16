@@ -1,14 +1,14 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require datatable
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
-//= require turbolinks
+//= require meiomask
+//= require app_control
+//= require chosen-jquery
 //= require twitter/bootstrap
 //= require twitter/bootstrap/rails/confirm
-//= require chosen-jquery
-//= require app_control
-//= require datatable
-//= require meiomask
 //= require rails.validations
 //= require rails.validations.simple_form
 //= require rails.validations.customValidators
@@ -40,8 +40,3 @@ app_control.init_before()
     proceed: "Confirmar",
     proceed_class: "btn proceed btn-primary"
   };
-
-
-  $(".alterar-senha").click ->
-    url = "/alterar_senha"
-    modal_form({ url: url })  

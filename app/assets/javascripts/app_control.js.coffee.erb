@@ -70,6 +70,7 @@ initialize_all_chosen = () ->
 
 
 
+
 # **********************************************************
 #   Modal related functions
 # **********************************************************
@@ -160,7 +161,6 @@ modal_functions = ->
 
 
     modal.on 'hide.bs.modal', ->
-      console.log 2222222222222
       #prevenir de criar múltiplos forms ao fechar/abrir modal
       form = modal.parent()
       if form.attr('class').substring(0,11) == "simple_form"

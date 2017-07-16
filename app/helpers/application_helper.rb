@@ -1,8 +1,9 @@
 module ApplicationHelper
 
- def botao_adicionar(model, prefix:"/#{model.name.tableize}", callback: nil)
+  def botao_adicionar(model, prefix:"/#{model.name.tableize}", callback: nil)
     link_to("<i class=\"fa fa-plus-circle no-margin-right\"></i> #{I18n.t('helpers.links.add', model: I18n.t("activerecord.models.#{model.name.underscore}.one"))}".html_safe,
-      "#{prefix}/new",
+      "#",
+      data: {url: "#{prefix}/new", callback: callback},
       :class => 'btn btn-default btn-new') if can?(:create, model)
   end
 

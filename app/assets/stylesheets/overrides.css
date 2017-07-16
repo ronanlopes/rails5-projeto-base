@@ -1,0 +1,9 @@
+.chosen-single{
+  height: 34px;
+}
+
+.chosen-container a, .chosen-container span{
+  height: 34px !important;
+  line-height: 34px !important;
+  text-align: center !important;
+}

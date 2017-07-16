@@ -67,9 +67,10 @@ private
     object.class.name.tableize
   end
 
+
   def botao_editar(object)
     link_to("<i class=\"fa fa-edit no-margin-right\"></i> #{I18n.t('helpers.links.edit')}".html_safe,
-      "/#{prefix_path(object)}/#{object.id}/edit",
+      "#", data: {url: "/#{prefix_path(object)}/#{object.id}/edit"},
       :class => 'btn btn-ar btn-xs btn-info btn-edit') if @view.can?(:update, object)
   end
 
@@ -85,6 +86,7 @@ private
       },
       :class => 'btn btn-ar btn-xs btn-danger') if @view.can?(:destroy, object)
   end
+
 
 
 end
