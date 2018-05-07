@@ -1,0 +1,84 @@
+
+.twitter-media{
+  width: 100%;
+  height: auto;
+}
+
+.facebook-media{
+  width: 100%;
+  height: auto;
+}
+
+.instagram-media{
+  width: 100%;
+  height: auto;
+}
+
+.facebook{
+  background-color: #4E69A2 !important;
+  border-color: #3A5795 !important;
+}
+
+.twitter{
+  background-color: #4E9FDB !important;
+  border-color: #1A5AA5 !important;
+}
+
+.instagram{
+  background-color: #B79F87 !important;
+  border-color: #7E6454 !important;
+}
+
+#login-wrapper{
+  padding: 15px;
+  background-color: #EEE;
+}
+
+.panel-social{
+  color: #FFF;
+  min-height: 130px;
+}
+
+.loading-info{
+  text-align: center;
+}
+
+.error-info{
+  text-align: center;
+  font-style: italic;
+}
+
+.social-thumb{
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.white-text{
+  color: #FFF !important;
+}
+
+
+/*
+ * Row with equal height columns
+ * --------------------------------------------------
+ */
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+
+.connect-social{
+  padding: 15px;
+}
+
+.no-padding{
+  padding: 0px;
+}
+
+.loading{
+  color: #555;
+}

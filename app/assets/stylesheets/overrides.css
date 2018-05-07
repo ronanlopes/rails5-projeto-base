@@ -7,3 +7,32 @@
   line-height: 34px !important;
   text-align: center !important;
 }
+
+.btn-social{
+	text-align: center;
+	cursor: pointer;
+}
+
+.custom-search-form button{
+	height: 34px;
+}
+
+#logo-topo{
+	color: #337ab7 !important;
+}
+
+#page-wrapper{
+	padding: 30px;
+}
+
+.page-header {
+  margin: 20px 0;
+}
+
+li.active a{
+	border-bottom: 0px;
+}
+
+#page-wrapper{
+	padding-top: 10px;
+}

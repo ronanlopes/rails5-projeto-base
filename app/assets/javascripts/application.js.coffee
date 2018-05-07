@@ -12,7 +12,11 @@
 //= require rails.validations
 //= require rails.validations.simple_form
 //= require rails.validations.customValidators
-
+//= require metisMenu
+//= require raphael
+//= require morris
+//= require morris-data
+//= require sb-admin-2
 
 app_control.init_before()
 # roda funções de inicialização
@@ -30,8 +34,8 @@ app_control.init_before()
   $('.btn-new').click ->
     url = $(this).data("url")
     callback = $(this).data("callback")
-    modal_form({ url: url, callback: callback})  
-  
+    modal_form({ url: url, callback: callback})
+
   $.fn.twitter_bootstrap_confirmbox.defaults = {
     fade: true,
     title: "Confirmação",
