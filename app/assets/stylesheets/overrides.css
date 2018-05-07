@@ -36,3 +36,81 @@ li.active a{
 #page-wrapper{
 	padding-top: 10px;
 }
+
+.container, .table-responsive{
+	width: 100%;
+}
+
+.form-horizontal .form-group{
+  margin-left: 0;
+  margin-right: 0;
+}
+.titulo{
+  margin-right: 20px;
+}
+
+[class^="chosen"]{
+  cursor: pointer !important;
+}
+
+#bootstrap_flash{
+  margin-top: 15px;
+}
+.chosen-container-multi{
+  cursor: text !important;
+}
+.btn{
+  cursor: pointer !important;
+}
+
+.chosen-choices{
+  min-height: 34px !important;
+}
+
+.modal-dialog{
+  width: 75% !important;
+}
+
+body.modal-open {
+  overflow-y: scroll !important;
+  margin: 0 !important;
+}
+
+.modal-body {
+    padding: 20px 30px 30px 30px;
+}
+
+.modal {
+  overflow: auto !important;
+}
+
+#confirmation_dialog > .modal-dialog{
+  width: 30% !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+  padding: 0px !important;
+}
+
+.collapse-link{
+  cursor: pointer;
+}
+
+.modal-header h1{
+	font-size: 30px;
+  font-weight: 100;
+	font-family: inherit;
+	line-height: 1.1;
+	color: inherit;
+	margin: 0.27em 0;
+	text-align: center;
+}
+
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+}
+
+.nav > li > a i {
+    margin-right: 6px;
+}

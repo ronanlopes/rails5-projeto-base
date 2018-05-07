@@ -192,11 +192,11 @@ html
                         i.fa.fa-search
                   /! /input-group
 
+                = generate_menu(menu_data)
                 li
-                  a href="index.html"
-                    i.fa.fa-dashboard.fa-fw
-                    '
-                    | Dashboard
+                  = link_to("<i class='fa fa-power-off'></i> <span class='nav-label'> Sair </span>".html_safe, destroy_user_session_path, :method => :delete)
+
+
                 / li
                 /   a href="#"
                 /     i.fa.fa-bar-chart-o.fa-fw

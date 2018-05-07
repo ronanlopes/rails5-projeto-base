@@ -1,0 +1,24 @@
+.container
+
+  .row
+    .col-lg-12
+      h2.section-title.no-margin-top
+        span.titulo
+          = I18n.t("activerecord.attributes.<%= singular_table_name %>.index")
+        = botao_adicionar(<%= singular_table_name.camelize %>)
+  .row
+    .col-md-12
+      .row
+        .col-md-12
+          table.table.table-striped.table-responsive.table-bordered#<%= plural_table_name %>_datatable data-source="#{send("<%= plural_table_name %>_url", format: 'json')}"
+            thead
+              tr
+
+                th = I18n.t("activerecord.attributes.cerquilha")
+<% attributes.each do |attribute| -%>
+                th = I18n.t("activerecord.attributes.<%= singular_table_name %>.<%= attribute.name %>")
+<% end -%>
+                th = I18n.t("helpers.actions")
+
+            tbody
+

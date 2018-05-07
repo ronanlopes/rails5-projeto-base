@@ -280,33 +280,9 @@ pt-BR:
       user:
         one: Usuário
         other: Usuários
-      area:
-        one: Área
-        other: Áreas
-      atividade:
-        one: Atividade
-        other: Atividades
-      modelo_empilhadeira:
-        one: Modelo - Empilhadeiras
-        other: Modelos - Empilhadeiras
-      area_modelo_empilhadeira:
-        one: Quantidade de Empilhadeiras x Área
-        other: Quantidade de Empilhadeiras x Área
-      solicitacao:
-        one: Solicitação
-        other: Soliticações
-      soliticacao_atendimento:
-        one: Solicitação - Atendimento
-        other: Solicitação - Atendimentos
-      status_operação:
-        one: Status da Operação
-        other: Status da Operação
-      relatorio:
-        one: Relatório
-        other: Relatórios
-      intervalo_motivo:
-        one: Motivo de Intervalo
-        other: Motivos de Intervalo
+      perfil:
+        one: Perfil
+        other: Perfis
 
     attributes:
       cerquilha: "#"
@@ -329,34 +305,9 @@ pt-BR:
         password: Nova Senha
         current_password: Senha Atual
         password_confirmation: Confirmação de Senha
-      area:
-        index: Lista de Áreas
+      perfil:
         nome: Nome
-      atividade:
-        index: Lista de Atividades
-        nome: Nome
-      modelo_empilhadeira:
-        index: Lista de Modelos (Empilhadeiras)
-        nome: Nome
-        area: Área
-        atividades: Atividades
-        operador: Operador Atual
-      area_modelo_empilhadeira:
-        index: Quantidade de Empilhadeiras x Área
-      solicitacao:
-        index: Lista de Solicitações
-        user_id: Solicitante
-        area_id: Área
-        area: Área
-        atividade_id: Atividade
-        hora: Hora
-        status_solicitacao_id: Status
-      relatorio:
-        data_inicio: Data de Início
-        data_fim: Data Final
-      intervalo_motivo:
-        index: Lista de Motivos
-        nome: Nome
+        index: Lista de Perfis
 
 
     messages:
@@ -388,39 +339,6 @@ pt-BR:
           name: Usuários
         perfis:
           name: Perfis
-        fornecedores:
-          name: Fornecedores
-        clientes:
-          name: Clientes
-        spes:
-          name: SPE's
-        distribuidoras:
-          name: Distribuidoras
-        usinas:
-          name: Usinas
-        unidades_consumidoras:
-          name: Unidades Consumidoras
-      fornecimento_usinas:
-        name: Usinas - Fornecimento
-      contas:
-        name: Contas
-        fatura_discriminacao_atributos:
-          name: Fatura - Atributos
-      contratos:
-        name: Contratos
-        arrendamento_contratos:
-          name: Contratos de Arrendamento
-        om_contratos:
-          name: Contratos de O&M
-        esco_contratos:
-          name: Contratos de ESCO
-      relatorios:
-        name: Relatórios
-        atividade:
-          name: Atividade
-        produtividade:
-          name: Produtividade
-
 
     actions:
       manage_all: Administrador

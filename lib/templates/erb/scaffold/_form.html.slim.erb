@@ -1,0 +1,22 @@
+.ibox.float-e-margins
+  .ibox-title
+    h5 Informações de Cadastro
+  .ibox-content
+    = simple_form_for(@<%= singular_table_name %>, validate: true) do |f|
+      = f.error_notification
+
+      .form-inputs
+    <%- attributes.each do |attribute| -%>
+        <% if attribute.reference? %>
+        = f.association :<%= attribute.name %>, input_html: {class: "chosen-select"}
+        <% else %>
+        = f.input :<%= attribute.name %>
+        <% end %>
+        .hr-line-dashed
+    <%- end -%>
+
+
+      .form-actions
+        = botao_salvar(f)
+        '
+        = botao_cancelar(f)

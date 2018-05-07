@@ -1,0 +1,23 @@
+.container
+
+  .row
+    .col-lg-12
+      h2.section-title.no-margin-top
+        span.titulo
+          = I18n.t("activerecord.attributes.perfil.index")
+        = botao_adicionar(Perfil)
+  .row
+    .col-md-12
+      .row
+        .col-md-12
+          table.table.table-striped.table-responsive.table-bordered#perfis_datatable data-source="#{send("perfis_url", format: 'json')}"
+            thead
+              tr
+
+                th = I18n.t("activerecord.attributes.cerquilha")
+                th = I18n.t("activerecord.attributes.perfil.nome")
+
+                th = I18n.t("helpers.actions")
+
+            tbody
+

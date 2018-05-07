@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :perfis
   root to: 'application#index'
 
   #users routes

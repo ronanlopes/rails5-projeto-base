@@ -14,8 +14,6 @@
 //= require rails.validations.customValidators
 //= require metisMenu
 //= require raphael
-//= require morris
-//= require morris-data
 //= require sb-admin-2
 
 app_control.init_before()
