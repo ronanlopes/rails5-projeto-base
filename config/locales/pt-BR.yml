@@ -137,6 +137,7 @@ pt-BR:
       odd: deve ser ímpar
       required: deve existir
       taken: já está em uso
+      email: "Endereço de e-mail inválido"
       too_long:
         one: 'é muito longo (máximo: 1 caracter)'
         other: 'é muito longo (máximo: %{count} caracteres)'

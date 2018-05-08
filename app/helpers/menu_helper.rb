@@ -7,7 +7,7 @@ module MenuHelper
     arr = []
 
     # Menus principais
-    arr << menu_link(id: :cadastros, text: I18n.t("permissions.context.cadastros.name"), icon: 'fa fa-users')
+    arr << menu_link(id: :cadastros, text: I18n.t("permissions.context.cadastros.name"), icon: 'fa fa-check-square-o')
 
     arr << menu_link(
       id: :index, text: I18n.t("activerecord.models.user.other"),
@@ -15,14 +15,6 @@ module MenuHelper
       controller: :users,
       permission: can?(:index, User), parent: :cadastros
     )
-
-    arr << menu_link(
-      id: :index, text: I18n.t("activerecord.models.perfil.other"),
-      icon: 'fa fa-user', link: perfis_path,
-      controller: :perfis,
-      permission: can?(:index, Perfil), parent: :cadastros
-    )
-
 
     # Permissões finais
     [:cadastros].each do |menu|

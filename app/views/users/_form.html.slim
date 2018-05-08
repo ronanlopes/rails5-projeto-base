@@ -1,20 +1,24 @@
-= simple_form_for @user, :html => { :class => "form-horizontal" } do |f|
-  .hr-line-dashed
-  .row
-    .col-md-6
-      = f.input :nome
-    .col-md-6
-      = f.input :email
-  .row
-    .col-md-6
-      = f.association :perfil, input_html: { class: "chosen-select"}
-    - if @user.new_record?
-      .col-md-3.password-field
-        = f.input :password
-      .col-md-3.password-field
-        = f.input :password_confirmation
-  .hr-line-dashed
-  .form-actions
-    = botao_salvar(f)
-    '
-    = botao_cancelar(f)
+.ibox.float-e-margins
+  .ibox-title
+    h5 Informações de Cadastro
+  .ibox-content
+    = simple_form_for @user, :html => { :class => "form-horizontal" }, validate: true do |f|
+      .hr-line-dashed
+      .row
+        .col-md-6
+          = f.input :nome
+        .col-md-6
+          = f.input :email
+      .row
+        .col-md-6
+          = f.association :perfil, validate: { presence: true }, input_html: { class: "chosen-select"}
+        - if @user.new_record?
+          .col-md-3.password-field
+            = f.input :password
+          .col-md-3.password-field
+            = f.input :password_confirmation
+      .hr-line-dashed
+      .form-actions
+        = botao_salvar(f)
+        '
+        = botao_cancelar(f)

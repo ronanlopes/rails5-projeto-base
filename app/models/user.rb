@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   delegate :nome, to: :perfil, prefix: :perfil
 
-  validates :perfil, :nome, :email, presence: true
+  validates :perfil_id, :nome, :email, presence: true
 
 end

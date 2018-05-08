@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    render "new", :layout => !request.xhr?    
+    render "new", :layout => !request.xhr?
   end
 
   def edit

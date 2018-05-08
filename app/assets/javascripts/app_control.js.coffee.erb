@@ -4,7 +4,7 @@ initialize_before = ->
 @initialize_objects = ->
   set_masks()
   initialize_all_chosen()
-  disable_submit_button_after_send()
+  client_side_validations_defaults()
   allow_chosen_deselect_select_all()
 
 
@@ -14,11 +14,14 @@ initialize_before = ->
     callback = $(this).data("callback")
     modal_form({ url: url, callback: callback})
 
-@disable_submit_button_after_send = ->
+@client_side_validations_defaults = ->
   window.ClientSideValidations.callbacks.form.before = ->
     $('input:submit').attr("disabled", true)
   window.ClientSideValidations.callbacks.form.after = ->
     $('input:submit').attr("disabled", false)
+
+
+JQuery.validator.setDefaults({ ignore: ":hidden:not(select)" })
 
 @initialize_chosen = (select) ->
   select.chosen(
@@ -174,7 +177,6 @@ modal_functions = ->
 
     initialize_objects()
     $('form').enableClientSideValidations()
-
 
 
 @allow_chosen_deselect_select_all = ->

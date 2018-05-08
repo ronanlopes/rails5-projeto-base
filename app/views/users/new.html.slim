@@ -1,4 +1,4 @@
-h2.section-title.no-margin-top
-  span.titulo
-    = t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => User.model_name.human.titleize
+- model_class = User
+.page-header
+  h1=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
 = render :partial => "form"
