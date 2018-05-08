@@ -12,7 +12,7 @@
 //= require rails.validations
 //= require rails.validations.simple_form
 //= require rails.validations.customValidators
-//= require metisMenu
+#//= require metisMenu
 //= require raphael
 //= require sb-admin-2
 

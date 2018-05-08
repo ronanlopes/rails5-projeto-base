@@ -20,7 +20,7 @@ private
       conditions = []
 
       conditions << "(CAST(perfis.id AS TEXT) LIKE ?)"
-      conditions << "(perfis.nome LIKE ?)"
+      conditions << "(UPPER(perfis.nome) LIKE (?))"
 
 
       values = []

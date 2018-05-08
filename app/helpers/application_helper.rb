@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def botao_adicionar(model, prefix:"/#{model.name.tableize}", callback: nil)
-    link_to("<i class=\"fa fa-plus-circle no-margin-right\"></i> #{I18n.t('helpers.links.add', model: I18n.t("activerecord.models.#{model.name.underscore}.one"))}".html_safe,
+    link_to("<i class='fa fa-plus-circle no-margin-right'></i> #{I18n.t('helpers.links.add', model: I18n.t("activerecord.models.#{model.name.underscore}.one"))}".html_safe,
       "#",
       data: {url: "#{prefix}/new", callback: callback},
       :class => 'btn btn-default btn-new') if can?(:create, model)
@@ -10,7 +10,7 @@ module ApplicationHelper
   def botao_salvar(builder)
 
     button_tag type: 'submit', class: "btn btn-primary" do
-      "<i class=\"fa fa-floppy-o\" aria-hidden=\"true\"></i> ".html_safe +
+      "<i class='fa fa-floppy-o' aria-hidden='true'></i> ".html_safe +
       t((builder.object.new_record? ? "helpers.links.create" : "helpers.links.update"),
         model: t("activerecord.models.#{builder.object.class.name.underscore}.one"))
     end
@@ -18,10 +18,10 @@ module ApplicationHelper
   end
 
   def botao_cancelar(builder)
-    link_to "<i class=\"fa fa-times-circle-o\" aria-hidden=\"true\"></i> ".html_safe +
-    t('.cancel', :default => t("helpers.links.cancel")),
-    url_for(action: "index", controller: builder.object.class.name.underscore.pluralize),
-    :class => 'btn btn-default'
+    button_tag(type: 'button', class: 'btn btn-default', data:{dismiss: "modal"}) do
+      "<i class='fa fa-times-circle-o' aria-hidden='true'></i> ".html_safe +
+      t('.cancel', :default => t("helpers.links.cancel"))
+    end
   end
 
   #Booleano para string - exibição na tabela

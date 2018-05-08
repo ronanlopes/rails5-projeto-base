@@ -1,0 +1,5 @@
+- Acesso não autorizado e páginas de erro: customizar
+- exception notifier
+- delocalize
+- se for decimal, mudar form e ver controller (delocalize)
+- ver inclusão dos termos no ptbr e assets.rb

@@ -1,5 +1,5 @@
 class TemplateDatatable
-  include ActionView::Helpers::FormTagHelper
+  include ActionView::Helpers
   include ActionView::Context
   include CanCan::Ability
 

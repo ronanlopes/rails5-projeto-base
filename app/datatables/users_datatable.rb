@@ -32,9 +32,9 @@ private
       conditions = []
 
       conditions << "(CAST(users.id AS TEXT) = ?)"
-      conditions << "(users.nome LIKE ?)"
-      conditions << "(email LIKE ?)"
-      conditions << "(perfis.nome LIKE ?)"
+      conditions << "(UPPER(users.nome) LIKE UPPER(?))"
+      conditions << "(UPPER(email) LIKE UPPER(?))"
+      conditions << "(UPPER(perfis.nome) LIKE UPPER(?))"
 
 
       values = []

@@ -192,7 +192,7 @@ html
                         i.fa.fa-search
                   /! /input-group
 
-                = generate_menu(menu_data)
+                = generate_menu
                 li
                   = link_to("<i class='fa fa-power-off'></i> <span class='nav-label'> Sair </span>".html_safe, destroy_user_session_path, :method => :delete)
 

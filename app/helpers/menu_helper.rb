@@ -4,11 +4,17 @@ module MenuHelper
   def menu_data
     return [] if !current_user || request.xhr?
 
-    arr = []
-
     # Menus principais
-    arr << menu_link(id: :cadastros, text: I18n.t("permissions.context.cadastros.name"), icon: 'fa fa-check-square-o')
+    menus_principais = [
+      {id: :cadastros, icon: 'fa fa-file-text-o'}
+    ]
 
+    arr = []
+    menus_principais.each do |menu|
+      arr << menu_link(id: menu[:id], text: I18n.t("menu.#{menu[:id]}"), icon: menu[:icon])
+    end
+
+    #Cadastros
     arr << menu_link(
       id: :index, text: I18n.t("activerecord.models.user.other"),
       icon: 'fa fa-users', link: users_path,
@@ -17,13 +23,13 @@ module MenuHelper
     )
 
     # Permissões finais
-    [:cadastros].each do |menu|
-      arr.find { |x| x[:id] == menu }[:permission] = arr.select { |x| x[:parent] == menu }.map { |x| x[:permission] }.include?(true)
+    menus_principais.each do |menu|
+      arr.find { |x| x[:id] == menu[:id] }[:permission] = arr.select { |x| x[:parent] == menu[:id] }.map { |x| x[:permission] }.include?(true)
     end
 
-    @menu_data = arr.select { |x| x[:permission] == true }
-    @menu_data = @menu_data.sort_by { |k| k[:text].upcase }
-    @menu_data
+    data = arr.select { |x| x[:permission] == true }
+    data.sort_by { |k| k[:text].upcase }
+    data
   end
 
   def menu_link(options={})
@@ -46,15 +52,16 @@ module MenuHelper
     menu_ativo || submenu_ativo ? "active" : ""
   end
 
-  def generate_menu(data)
+  def generate_menu
     html = ""
+    data = menu_data
     return html if !current_user || data.nil?
     main_menu = data.select { |x| x[:parent].nil? }
     submenus = data.select { |x| !x[:parent].nil? }
     main_menu.each do |menu|
       sub_menu_childs = submenus.select{|x| x[:parent]==menu[:id]}.count > 0 ? true : false
       html << content_tag(:li, class: "#{menu_active(menu, submenus)}") do
-        icolink_to(menu_name(menu[:text]), menu[:link], menu[:icon].to_s, {childs: sub_menu_childs, nav_label: true}) +
+        icolink_to(menu_name(menu[:text]), menu[:link] || "#", menu[:icon].to_s, {childs: sub_menu_childs, nav_label: true}) +
         generate_submenu(submenus, menu[:id])
       end
     end
@@ -64,7 +71,7 @@ module MenuHelper
 
   def submenu_active(submenu)
     controller = submenu[:controller] || submenu[:parent]
-    (controller_name_sym == controller && params.to_h[:action].to_sym == submenu[:id]) || (params.permit(:tipo_relatorio).to_h[:tipo_relatorio].try(:to_sym) == submenu[:id]) ? "active" : ""
+    (controller_name_sym == controller && params.to_h[:action].to_sym == submenu[:id]) ? "active" : ""
   end
 
   def generate_submenu(data, parent, counter = 0)

@@ -23,7 +23,7 @@ private
 
       conditions << "(CAST(<%= plural_table_name %>.id AS TEXT) LIKE ?)"
 <%- attributes.each do |attribute| -%>
-      conditions << "(<%= plural_table_name %>.<%= attribute.name %> LIKE ?)"
+      conditions << "(UPPER(CAST <%= plural_table_name %>.<%= attribute.name %> AS TEXT) LIKE (?))"
 <% end %>
 
       values = []

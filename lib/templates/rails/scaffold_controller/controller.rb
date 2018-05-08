@@ -11,25 +11,24 @@ class <%= controller_class_name %>Controller < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: <%= "#{plural_table_name.camelize}" %>Datatable.new(view_context) }
-    end  
+    end
   end
 
   def new
-    @<%= singular_table_name %> = <%= orm_class.build(class_name) %>  
-    render "new", :layout => !request.xhr?    
+    @<%= singular_table_name %> = <%= orm_class.build(class_name) %>
+    render "new", :layout => !request.xhr?
   end
 
   def edit
-    render "edit", :layout => !request.xhr?    
+    render "edit", :layout => !request.xhr?
   end
-
 
   def create
     @<%= singular_table_name %> = <%= orm_class.build(class_name, "#{singular_table_name}_params") %>
 
     respond_to do |format|
       if @<%= orm_instance.save %>
-        format.html { 
+        format.html {
           flash[:notice] = flash_notice
           redirect_to action: "index"
         }
@@ -44,7 +43,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   def update
     respond_to do |format|
       if @<%= orm_instance.update("#{singular_table_name}_params") %>
-        format.html { 
+        format.html {
           flash[:notice] = flash_notice
           redirect_to action: "index"
         }
@@ -59,7 +58,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   def destroy
     @<%= orm_instance.destroy %>
     respond_to do |format|
-      format.html { 
+      format.html {
         flash[:notice] = flash_notice
         redirect_to action: "index"
       }
