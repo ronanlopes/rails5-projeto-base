@@ -154,3 +154,10 @@
   color: #666;
   font-size: 2em;
 }
+
+.loading-message{
+  text-align:center;
+  font-size: 1.2em;
+  display: block;
+  margin: auto;
+}
