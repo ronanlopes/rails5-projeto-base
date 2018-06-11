@@ -45,7 +45,7 @@ module Custom # :nodoc:
 
     protected
       def available_views
-        %w(index edit new _form)
+        %w(index _form)
       end
     end
   end

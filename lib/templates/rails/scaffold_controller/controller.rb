@@ -73,8 +73,12 @@ private
   end
 
   def <%= "#{singular_table_name}_params" %>
+    <%- delocalized_attrs = attributes.select{|a| a.type.to_s == "decimal"}.map(&:name) -%>
+    <%- if delocalized_attrs.size > 0 -%>
+    <%= "delocalize_config = { #{ delocalized_attrs.map{|a| ":#{a} => :number"}.join(",") } }" %>
+    <%- end -%>
     <%- if defined?(attributes_names) -%>
-    params.require(:<%= singular_table_name %>).permit(<%= attributes_names.map { |name| ":#{name}" }.join(', ') %>)
+    params.require(:<%= singular_table_name %>).permit(<%= attributes_names.map { |name| ":#{name}" }.join(', ') %>)<%= ".delocalize(delocalize_config)" if delocalized_attrs.present?%>
     <%- else -%>
     params[:<%= singular_table_name %>]
     <%- end -%>

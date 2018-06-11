@@ -1,7 +1,7 @@
-.ibox.float-e-margins
-  .ibox-title
+.panel.panel-default
+  .panel-heading
     h5 Informações de Cadastro
-  .ibox-content
+  .panel-body
     = simple_form_for(@perfil, validate: true) do |f|
       = f.error_notification
 
@@ -9,8 +9,7 @@
 
         = f.input :nome
 
-        .hr-line-dashed
-
+      .hr-line-solid
 
       .form-actions
         = botao_salvar(f)

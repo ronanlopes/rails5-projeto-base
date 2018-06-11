@@ -161,3 +161,31 @@
   display: block;
   margin: auto;
 }
+
+.form-actions{
+  text-align: center;
+}
+
+.hr-line-dashed {
+  border-top: 1px dashed #DDD;
+  height: 1px;
+  margin: 20px 0;
+}
+
+.hr-line-solid {
+  border-top: 1px solid #DDD;
+  height: 1px;
+  margin: 25px 0;
+}
+
+.modal-body .hr-line-solid{
+  display: none;
+}
+
+.panel-heading{
+  text-align: center;
+}
+
+.error-dialog{
+  margin-top: 50px;
+}

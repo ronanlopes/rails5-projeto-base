@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :perfis
   root to: 'application#index'
 
+  #páginas de erro
+  match '/404', to: 'application#not_found', via: :all
+  match '/500', to: 'application#internal_server_error', via: :all
+
   #users routes
   devise_for :users, :skip => [:registrations]
 	as :user do
@@ -12,8 +16,5 @@ Rails.application.routes.draw do
 	end
   resources :users, except: [:show], path: "/controle_de_usuarios"
 
-  #páginas de erro
-  match '/404', to: 'pages#not_found', via: :all
-  match '/500', to: 'pages#internal_server_error', via: :all
 
 end

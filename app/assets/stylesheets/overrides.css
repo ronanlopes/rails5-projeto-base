@@ -112,5 +112,9 @@ body.modal-open {
 }
 
 .nav > li > a i {
-    margin-right: 6px;
+  margin-right: 6px;
+}
+
+.panel-body {
+  padding: 20px 40px;
 }

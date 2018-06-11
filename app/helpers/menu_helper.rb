@@ -6,7 +6,7 @@ module MenuHelper
 
     # Menus principais
     menus_principais = [
-      {id: :cadastros, icon: 'fa fa-file-text-o'}
+      {id: :cadastros, icon: 'fa fa-file-text-o'},
     ]
 
     arr = []
@@ -35,9 +35,8 @@ module MenuHelper
   def menu_link(options={})
     {
       id: options[:id], text: options[:text], icon: options[:icon],
-      link: options[:link], options_link: options[:options_link],
-      permission: options[:permission], parent: options[:parent],
-      controller: options[:controller]
+      link: options[:link], controller: options[:controller],
+      permission: options[:permission], parent: options[:parent]
     }
   end
 
@@ -61,7 +60,7 @@ module MenuHelper
     main_menu.each do |menu|
       sub_menu_childs = submenus.select{|x| x[:parent]==menu[:id]}.count > 0 ? true : false
       html << content_tag(:li, class: "#{menu_active(menu, submenus)}") do
-        icolink_to(menu_name(menu[:text]), menu[:link] || "#", menu[:icon].to_s, {childs: sub_menu_childs, nav_label: true}) +
+        icolink_to(menu_name(menu[:text]), menu[:link] || "#", menu[:icon].to_s, {class: "#{menu_active(menu, submenus)}", childs: sub_menu_childs, nav_label: true}) +
         generate_submenu(submenus, menu[:id])
       end
     end
@@ -71,7 +70,7 @@ module MenuHelper
 
   def submenu_active(submenu)
     controller = submenu[:controller] || submenu[:parent]
-    (controller_name_sym == controller && params.to_h[:action].to_sym == submenu[:id]) ? "active" : ""
+    (controller_name_sym == controller && (params.to_h[:action].to_sym == submenu[:id] || submenu[:parent]==:cadastros)) ? "active" : ""
   end
 
   def generate_submenu(data, parent, counter = 0)
@@ -82,10 +81,10 @@ module MenuHelper
       html = ""
       submenu.each do |menu|
         if menu[:link]
-          html << content_tag(:li, icolink_to(menu[:text], menu[:link], menu[:icon].to_s, menu[:options_link]), class: "#{submenu_active(menu)}")
+          html << content_tag(:li, icolink_to(menu[:text], menu[:link], menu[:icon].to_s, {class: "#{submenu_active(menu)}"}))
         else
           html << content_tag(:li) do
-            icomenu(menu[:text], menu[:icon].to_s) + generate_submenu(data, menu[:id], counter + 1)
+            icomenu(menu[:text], menu[:icon].to_s, { class: "#{submenu_active(menu)}"}) + generate_submenu(data, menu[:id], counter + 1)
           end
         end
       end
@@ -108,7 +107,7 @@ module MenuHelper
     link_to(text.html_safe, path, options)
   end
 
-  def icomenu(text, icon="")
+  def icomenu(text, icon="", options={})
     return content_tag(:a, menu_name(text), "data-toggle" => "dropdown", href: "#") if icon.empty?
     content_tag(:a, "data-toggle" => "dropdown", href: "#") do
       (content_tag(:div, content_tag(:p, "", class: icon), class: "wrap-icon") + menu_name(text)).html_safe

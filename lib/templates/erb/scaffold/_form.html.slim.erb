@@ -1,22 +1,27 @@
-.ibox.float-e-margins
-  .ibox-title
+.panel.panel-default
+  .panel-heading
     h5 Informações de Cadastro
-  .ibox-content
+  .panel-body
     = simple_form_for(@<%= singular_table_name %>, validate: true) do |f|
       = f.error_notification
 
       .form-inputs
-    <%- attributes.each do |attribute| -%>
-        <% if attribute.reference? %>
+      <%- attributes.each_with_index do |attribute, index| -%>
+
+        <%- if attribute.reference? -%>
         = f.association :<%= attribute.name %>, input_html: {class: "chosen-select"}
-        <% else %>
+        <%- elsif attribute.type.to_s == "decimal" -%>
+        = f.input :<%= attribute.name %>, as: :string, input_html: { "data-mask" => "decimal", value: number_to_currency(@<%= singular_table_name %>.<%= attribute.name %>.to_f, :separator => ",", :delimiter => ".", :unit => "") }
+        <%- else -%>
         = f.input :<%= attribute.name %>
-        <% end %>
+        <%- end -%>
+
+        <%- if index != (attributes.size - 1) -%>
         .hr-line-dashed
-    <%- end -%>
-
-
-      .form-actions
-        = botao_salvar(f)
-        '
-        = botao_cancelar(f)
+        <%- end-%>
+      <%- end -%>
+        .hr-line-solid
+        .form-actions
+          = botao_salvar(f)
+          '
+          = botao_cancelar(f)

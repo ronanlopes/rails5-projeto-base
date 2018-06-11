@@ -37,7 +37,7 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'exception_notification'
 gem 'cancancan', '~> 2.0'
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
 gem 'twitter-bootstrap-rails-confirm'
 gem 'font-awesome-rails'
 gem 'chosen-rails'
@@ -48,6 +48,8 @@ gem 'jquery-ui-rails'
 gem 'meiomask-rails'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
+gem 'exception_notification'
+gem 'delocalize'
 
 #Relatórios excel
 gem 'rubyzip', '~> 1.1.0'

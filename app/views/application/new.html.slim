@@ -1,0 +1,5 @@
+.page-header
+  h1 =(t("helpers.titles.#{action_name}", :model =>  t("activerecord.models.#{controller_name.singularize}.one")))
+.row
+	.col-md-10.col-md-offset-1
+		= render :partial => "form"

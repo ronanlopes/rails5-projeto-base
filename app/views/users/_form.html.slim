@@ -1,14 +1,14 @@
-.ibox.float-e-margins
-  .ibox-title
+.panel.panel-default
+  .panel-heading
     h5 Informações de Cadastro
-  .ibox-content
+  .panel-body
     = simple_form_for @user, :html => { :class => "form-horizontal" }, validate: true do |f|
-      .hr-line-dashed
       .row
         .col-md-6
           = f.input :nome
         .col-md-6
           = f.input :email
+      .hr-line-dashed
       .row
         .col-md-6
           = f.association :perfil, validate: { presence: true }, input_html: { class: "chosen-select"}
@@ -17,7 +17,7 @@
             = f.input :password
           .col-md-3.password-field
             = f.input :password_confirmation
-      .hr-line-dashed
+      .hr-line-solid
       .form-actions
         = botao_salvar(f)
         '
