@@ -50,6 +50,7 @@ gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'exception_notification'
 gem 'delocalize'
+gem 'rails-observers'
 
 #Relatórios excel
 gem 'rubyzip', '~> 1.1.0'

@@ -178,6 +178,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-observers (0.1.5)
+      activemodel (>= 4.0)
     railties (5.0.4)
       actionpack (= 5.0.4)
       activesupport (= 5.0.4)
@@ -291,6 +293,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.3)
+  rails-observers
   rubyzip (~> 1.1.0)
   sass-rails (~> 5.0)
   simple_form
